@@ -82,7 +82,7 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.AllowAny",
+        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
     ],
 }
 
@@ -116,14 +116,14 @@ REST_AUTH = {
 
 # Required fields for signup
 ACCOUNT_SIGNUP_FIELDS = [
-    "email*",      # required email
-    "username*",   # required username
-    "password1*",  # required password
-    "password2*",  # required confirmation
+    "email*",  
+    "username*",   
+    "password1*",  
+    "password2*",  
 ]
 
 ACCOUNT_EMAIL_VERIFICATION = "none"  # disables verification in dev
-ACCOUNT_EMAIL_UNIQUE = True           # still valid
+ACCOUNT_EMAIL_UNIQUE = True  
 
 
 
