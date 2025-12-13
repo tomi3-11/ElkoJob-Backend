@@ -115,12 +115,25 @@ REST_AUTH = {
 }
 
 # Allauth configs
-ACCOUNT_EMAIL_UNIQUE = True
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'none'  # Use 'mandatory' in production
-ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
-LOGIN_METHODS = {"email"}
+# ACCOUNT_EMAIL_UNIQUE = True
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_USERNAME_REQUIRED = True
+# ACCOUNT_EMAIL_VERIFICATION = 'none'  # Use 'mandatory' in production
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
+# LOGIN_METHODS = {"email"}
+
+
+# Required fields for signup
+ACCOUNT_SIGNUP_FIELDS = [
+    "email*",      # required email
+    "username*",   # required username
+    "password1*",  # required password
+    "password2*",  # required confirmation
+]
+
+ACCOUNT_EMAIL_VERIFICATION = "none"  # disables verification in dev
+ACCOUNT_EMAIL_UNIQUE = True           # still valid
+
 
 
 
@@ -203,7 +216,18 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# email setup for account verification
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+
+# Silencing warnings
+import warnings
+warnings.filterwarnings(
+    "ignore",
+    message=".*is deprecated, use: app_settings.SIGNUP_FIELDS.*"
+)
