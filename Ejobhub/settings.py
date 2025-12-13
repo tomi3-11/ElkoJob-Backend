@@ -114,15 +114,6 @@ REST_AUTH = {
 
 }
 
-# Allauth configs
-# ACCOUNT_EMAIL_UNIQUE = True
-# ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_USERNAME_REQUIRED = True
-# ACCOUNT_EMAIL_VERIFICATION = 'none'  # Use 'mandatory' in production
-# ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
-# LOGIN_METHODS = {"email"}
-
-
 # Required fields for signup
 ACCOUNT_SIGNUP_FIELDS = [
     "email*",      # required email
