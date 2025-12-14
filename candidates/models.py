@@ -7,6 +7,16 @@ class CandidateProfile(models.Model):
         on_delete=models.CASCADE,
         related_name="candidate_profile"
     )
+    
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    location = models.CharField(max_length=100, blank=True)
+
+    experience = models.PositiveIntegerField(
+        help_text="Years of experience",
+        default=0
+    )
+    
     bio = models.TextField(blank=True)
     skills = models.JSONField(default=list, blank=True)
     resume = models.FileField(upload_to="resumes/", blank=True, null=True)
@@ -33,6 +43,7 @@ class Job(models.Model):
         ("onsite", "Onsite"),
     ]
 
+    employer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="jobs")
     title = models.CharField(max_length=255)
     type = models.CharField(max_length=20, choices=JOB_TYPE_CHOICES)
     level = models.CharField(max_length=20, choices=LEVEL_CHOICES)
@@ -41,7 +52,9 @@ class Job(models.Model):
     work_type = models.CharField(max_length=20, choices=WORK_TYPE_CHOICES)
     salary_range = models.CharField(max_length=50)
     category = models.CharField(max_length=100)
+    description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
