@@ -4,7 +4,7 @@ from .models import CandidateProfile, Job, JobApplication
 class CandidateProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = CandidateProfile
-        fields = ["bio", "skills", "resume"]
+        fields = ["bio", "skills", "resume", "subscription_active"]
 
 
 class JobSerializer(serializers.ModelSerializer):
