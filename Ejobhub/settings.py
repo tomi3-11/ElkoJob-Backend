@@ -122,11 +122,15 @@ ACCOUNT_SIGNUP_FIELDS = [
     "username*",   
     "password1*",  
     "password2*",  
+    "user_type",  
 ]
 
 ACCOUNT_EMAIL_VERIFICATION = "none"  # disables verification in dev
 ACCOUNT_EMAIL_UNIQUE = True  
 
+REST_AUTH_REGISTER_SERIALIZERS = {
+    "REGISTER_SERIALIZER": "accounts.serializers.CustomerRegisterSerializer",
+}
 
 
 

@@ -1,6 +1,7 @@
 from rest_framework import generics, permissions, filters, serializers
-from .models import CandidateProfile, Job, JobApplication
+from .models import CandidateProfile, JobApplication
 from .serializers import CandidateProfileSerializer, JobSerializer, JobApplicationSerializer
+from employers.models import Job
 
 class CandidateProfileView(generics.RetrieveUpdateAPIView):
     serializer_class = CandidateProfileSerializer

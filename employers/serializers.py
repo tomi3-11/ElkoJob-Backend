@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import JobMatchRequest
-from candidates.models import CandidateProfile, Job
+from .models import JobMatchRequest, Job
+from candidates.models import CandidateProfile
 
 class JobSerializer(serializers.ModelSerializer):
     class Meta:

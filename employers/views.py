@@ -1,6 +1,5 @@
 from rest_framework import generics, permissions, filters
-from .models import JobMatchRequest
-from candidates.models import Job
+from .models import JobMatchRequest, Job
 from .serializers import JobSerializer, JobMatchRequestSerializer, CandidateProfileSerializer
 from candidates.models import CandidateProfile
 from employers.permissions import IsEmployer

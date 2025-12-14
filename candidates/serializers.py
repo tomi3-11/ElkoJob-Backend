@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import CandidateProfile, Job, JobApplication
+from .models import CandidateProfile, JobApplication
+from employers.models import Job
 
 class CandidateProfileSerializer(serializers.ModelSerializer):
     class Meta:
