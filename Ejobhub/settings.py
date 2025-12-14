@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     
     # My apps
     "accounts",
+    "candidates",
     
     # Third Party apps
     "rest_framework",
